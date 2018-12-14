@@ -1,0 +1,124 @@
+.paint-demo-wrapper {
+  position: relative;
+  width: 480px;
+  height: 280px;
+  overflow: hidden;
+}
+
+.paint-demo-wrapper .page-title {
+  position: absolute;
+  font-size: 10px;
+  top: 12px;
+  left: 75px;
+}
+
+.paint-demo-wrapper .favicon,
+.paint-demo-wrapper .empty-favicon {
+  position: absolute;
+  font-size: 10px;
+  top: 12px;
+  left: 60px;
+}
+
+.paint-demo-wrapper .page-url {
+  position: absolute;
+  font-size: 10px;
+  top: 30px;
+  left: 60px;
+}
+
+.paint-demo-wrapper .refresh-icon,
+.paint-demo-wrapper .close-btn {
+  position: absolute;
+  font-size: 10px;
+  top: 14px;
+  left: 150px;
+}
+
+.paint-demo-wrapper .refresh-icon {
+  top: 12px;
+}
+
+.page-demo {
+  position: relative;
+  top: -5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-demo .header {
+  height: 30px;
+  width: 100%;
+  background: #f40;
+}
+
+.page-demo .content {
+  height: 170px;
+  width: 100%;
+  background: #f8f8f8;
+}
+
+.page-demo .footer {
+  height: 32px;
+  width: 100%;
+  background: #ddd;
+}
+
+.page-demo .header .page-demo-title {
+  color: #fff;
+  line-height: 1.6;
+  margin-left: 10px;
+}
+
+.page-demo .footer .page-demo-footer {
+  font-size: 10px;
+  color: #999;
+  line-height: 3;
+  margin-left: 10px;
+}
+
+.paint-demo-wrapper .timer-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 2px;
+  background: rgba(255, 255, 255, .9);
+  border: 1px #999 solid;
+  z-index: 1;
+  text-align: right;
+  width: 194px;
+}
+
+.paint-demo-wrapper .timer-wrapper .slow-btn {
+  position: absolute;
+  bottom: 6px;
+  left: 4px;
+  font-size: 10px;
+  color: #999;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.paint-demo-wrapper .timer-wrapper .reload-btn {
+  position: absolute;
+  bottom: 6px;
+  left: 46px;
+  font-size: 10px;
+  color: #999;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.paint-demo-wrapper .timer-wrapper .timer-entry {
+  display: block;
+  font-size: 12px;
+  color: #999;
+}
+
+.paint-demo-wrapper .timer {
+  font-family: monospace;
+  font-size: 16px;
+}
