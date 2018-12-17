@@ -6,7 +6,8 @@ export default {
   input: 'src/PaintDemo.js',
   output: {
     file: 'dist/index.js',
-    format: 'cjs'
+    format: 'umd',
+    name: 'PaintDemo',
   },
   plugins: [
     babel({

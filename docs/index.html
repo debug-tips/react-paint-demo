@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ReactPaintDemo</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script src="../dist/index.js"></script>
+  <link rel="stylesheet" href="../src/style.css">
+</head>
+<body>
+  <p>
+    You can specify <code>fp</code>, <code>fcp</code>, <code>fmp</code> and <code>load</code> through URL query or default ones will be used.
+  </p>
+  <diYou can v id="app"></div>
+  <script>
+    var query = new URL(location.href).searchParams;
+    var fp =parseFloat(query.get('fp')) || 800.55;
+    var fcp =parseFloat(query.get('fcp')) || 1555.23;
+    var fmp =parseFloat(query.get('fmp')) || 2535.21;
+    var load =parseFloat(query.get('load')) || 3532.56;
+    ReactDOM.render(React.createElement(PaintDemo, { fp: fp, fcp: fcp, fmp: fmp, load: load }), app);
+  </script>
+</body>
+</html>
