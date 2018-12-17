@@ -183,7 +183,7 @@ class App extends Component {
         { loading && <EmptyFavicon /> }
         { !loading && <Favicon /> }
         <Browser />
-        <div className="timer-wrapper" style={{"position":"absolute","bottom":"0","right":"0","padding":"2px","background":"rgba(255, 255, 255, .9)","border":"1px #999 solid","zIndex":"1","textAlign":"right","width":"175px"}}>
+        <div className="timer-wrapper" style={{"position":"absolute","bottom":"0","right":"0","padding":"2px","background":"rgba(255, 255, 255, .9)","border":"1px #999 solid","zIndex":"1","textAlign":"right","width":"205px"}}>
           {/* <span className="slow-btn" onClick={this.handleSlow}>{ slowFactor === 1 ? '2x slow' : 'normal'}</span> */}
           { finalTime >= lastTime && <span className="reload-btn" onClick={this.handleReplay} style={{"position":"absolute","bottom":"6px","left":"10px","fontSize":"10px","color":"#999","textDecoration":"underline","cursor":"pointer"}}>replay</span> }
           {arr.map((item, index) => {

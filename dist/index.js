@@ -561,7 +561,12 @@
               "background": "#f8f8f8"
             }
           }), React__default.createElement("div", {
-            className: "footer"
+            className: "footer",
+            style: {
+              "height": "32px",
+              "width": "100%",
+              "background": "#ddd"
+            }
           }));
         }
       });
@@ -668,7 +673,7 @@
             "border": "1px #999 solid",
             "zIndex": "1",
             "textAlign": "right",
-            "width": "175px"
+            "width": "205px"
           }
         }, finalTime >= lastTime && React__default.createElement("span", {
           className: "reload-btn",
