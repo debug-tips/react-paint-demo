@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Loading() {
   return (
-    <svg className='refresh-icon' width='12' height='12' viewBox='0 0 1024 1024'
+    <svg style={{"position":"absolute","fontSize":"10px","top":"12px","left":"150px"}}  className='refresh-icon' width='12' height='12' viewBox='0 0 1024 1024'
       xmlns='http://www.w3.org/2000/svg'>
       <animateTransform
         attributeName="transform"

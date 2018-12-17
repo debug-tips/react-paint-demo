@@ -92,6 +92,12 @@
 
   function Loading() {
     return React__default.createElement("svg", {
+      style: {
+        "position": "absolute",
+        "fontSize": "10px",
+        "top": "12px",
+        "left": "150px"
+      },
       className: "refresh-icon",
       width: "12",
       height: "12",
@@ -112,6 +118,12 @@
 
   function CloseButton() {
     return React__default.createElement("svg", {
+      style: {
+        "position": "absolute",
+        "fontSize": "10px",
+        "top": "14px",
+        "left": "150px"
+      },
       className: "close-btn",
       width: "16",
       height: "16",
@@ -233,6 +245,12 @@
 
   function EmptyFavicon() {
     return React__default.createElement("svg", {
+      style: {
+        "position": "absolute",
+        "fontSize": "10px",
+        "top": "12px",
+        "left": "60px"
+      },
       className: "empty-favicon",
       width: "12",
       height: "12",
@@ -246,6 +264,12 @@
 
   function Favicon() {
     return React__default.createElement("svg", {
+      style: {
+        "position": "absolute",
+        "fontSize": "10px",
+        "top": "12px",
+        "left": "60px"
+      },
       className: "favicon",
       width: "12",
       height: "12",
@@ -410,43 +434,132 @@
 
         if (isFmp) {
           return React__default.createElement("div", {
-            className: "page-demo"
+            className: "page-demo",
+            style: {
+              "position": "relative",
+              "top": "-6px",
+              "width": "100%",
+              "display": "flex",
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "alignItems": "center"
+            }
           }, React__default.createElement("div", {
-            className: "header"
+            className: "header",
+            style: {
+              "height": "30px",
+              "width": "100%",
+              "background": "#f40"
+            }
           }, React__default.createElement("span", {
-            className: "page-demo-title"
+            className: "page-demo-title",
+            style: {
+              "color": "#fff",
+              "lineHeight": "1.6",
+              "marginLeft": "10px"
+            }
           }, pageTitle || 'Demo Page')), React__default.createElement("div", {
-            className: "content"
+            className: "content",
+            style: {
+              "height": "170px",
+              "width": "100%",
+              "background": "#f8f8f8"
+            }
           }, React__default.createElement("ul", null, React__default.createElement("li", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit."), finalFmp < finalLoad && React__default.createElement("li", null, time > finalLoad - 100 ? React__default.createElement(Image, null) : React__default.createElement(ImageHolder, null)), React__default.createElement("li", null, "Curabitur tristique eros tortor, eu dignissim enim egestas in. Cras facilisis risus accumsan venenatis vulputate."), React__default.createElement("li", null, "Vivamus quis libero ac sapien placerat viverra."))), React__default.createElement("div", {
-            className: "footer"
+            className: "footer",
+            style: {
+              "height": "32px",
+              "width": "100%",
+              "background": "#ddd"
+            }
           }, React__default.createElement("span", {
-            className: "page-demo-footer"
+            className: "page-demo-footer",
+            style: {
+              "fontSize": "10px",
+              "color": "#999",
+              "lineHeight": "3",
+              "marginLeft": "10px"
+            }
           }, "\xA9 MyCompany 2010-2019")));
         }
 
         if (isFcp) {
           return React__default.createElement("div", {
-            className: "page-demo"
+            className: "page-demo",
+            style: {
+              "position": "relative",
+              "top": "-6px",
+              "width": "100%",
+              "display": "flex",
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "alignItems": "center"
+            }
           }, React__default.createElement("div", {
-            className: "header"
+            className: "header",
+            style: {
+              "height": "30px",
+              "width": "100%",
+              "background": "#f40"
+            }
           }, React__default.createElement("span", {
-            className: "page-demo-title"
+            className: "page-demo-title",
+            style: {
+              "color": "#fff",
+              "lineHeight": "1.6",
+              "marginLeft": "10px"
+            }
           }, pageTitle || 'Demo Page')), React__default.createElement("div", {
-            className: "content"
+            className: "content",
+            style: {
+              "height": "170px",
+              "width": "100%",
+              "background": "#f8f8f8"
+            }
           }, finalFmp > finalLoad && React__default.createElement("span", null, "loading...")), React__default.createElement("div", {
-            className: "footer"
+            className: "footer",
+            style: {
+              "height": "32px",
+              "width": "100%",
+              "background": "#ddd"
+            }
           }, React__default.createElement("span", {
-            className: "page-demo-footer"
+            className: "page-demo-footer",
+            style: {
+              "fontSize": "10px",
+              "color": "#999",
+              "lineHeight": "3",
+              "marginLeft": "10px"
+            }
           }, "\xA9 MyCompany 2010-2019")));
         }
 
         if (isFp) {
           return React__default.createElement("div", {
-            className: "page-demo"
+            className: "page-demo",
+            style: {
+              "position": "relative",
+              "top": "-6px",
+              "width": "100%",
+              "display": "flex",
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "alignItems": "center"
+            }
           }, React__default.createElement("div", {
-            className: "header"
+            className: "header",
+            style: {
+              "height": "30px",
+              "width": "100%",
+              "background": "#f40"
+            }
           }), React__default.createElement("div", {
-            className: "content"
+            className: "content",
+            style: {
+              "height": "170px",
+              "width": "100%",
+              "background": "#f8f8f8"
+            }
           }), React__default.createElement("div", {
             className: "footer"
           }));
@@ -521,19 +634,62 @@
         });
         var finalTime = time / slowFactor;
         return React__default.createElement("div", {
-          className: "paint-demo-wrapper"
+          className: "paint-demo-wrapper",
+          style: {
+            position: "relative",
+            width: 480,
+            height: 280,
+            overflow: "hidden"
+          }
         }, React__default.createElement("span", {
-          className: "page-title"
+          className: "page-title",
+          style: {
+            "position": "absolute",
+            "fontSize": "10px",
+            "top": "12px",
+            "left": "75px"
+          }
         }, pageTitle || 'Demo Page'), React__default.createElement("span", {
-          className: "page-url"
+          className: "page-url",
+          style: {
+            "position": "absolute",
+            "fontSize": "10px",
+            "top": "30px",
+            "left": "60px"
+          }
         }, pageUrl || 'https://www.example.com'), !loading && React__default.createElement(CloseButton, null), loading && React__default.createElement(Loading, null), loading && React__default.createElement(EmptyFavicon, null), !loading && React__default.createElement(Favicon, null), React__default.createElement(Browser, null), React__default.createElement("div", {
-          className: "timer-wrapper"
+          className: "timer-wrapper",
+          style: {
+            "position": "absolute",
+            "bottom": "0",
+            "right": "0",
+            "padding": "2px",
+            "background": "rgba(255, 255, 255, .9)",
+            "border": "1px #999 solid",
+            "zIndex": "1",
+            "textAlign": "right",
+            "width": "175px"
+          }
         }, finalTime >= lastTime && React__default.createElement("span", {
           className: "reload-btn",
-          onClick: this.handleReplay
+          onClick: this.handleReplay,
+          style: {
+            "position": "absolute",
+            "bottom": "6px",
+            "left": "10px",
+            "fontSize": "10px",
+            "color": "#999",
+            "textDecoration": "underline",
+            "cursor": "pointer"
+          }
         }, "replay"), arr.map(function (item, index) {
           if (item.value <= finalTime && item.value > 0) {
             return React__default.createElement("span", {
+              style: {
+                "display": "block",
+                "fontSize": "12px",
+                "color": "#999"
+              },
               className: "timer-entry",
               key: index
             }, item.key, ": ", item.value.toFixed(2), "ms");
@@ -541,7 +697,11 @@
 
           return null;
         }), React__default.createElement("span", {
-          className: "timer"
+          className: "timer",
+          style: {
+            "fontFamily": "monospace",
+            "fontSize": "16px"
+          }
         }, finalTime.toFixed(2), "ms")), this.renderContentByTime(finalTime));
       }
     }]);

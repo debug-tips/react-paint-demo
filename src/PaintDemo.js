@@ -111,11 +111,11 @@ class App extends Component {
 
     if (isFmp) {
       return (
-        <div className="page-demo">
-          <div className="header">
-            <span className="page-demo-title">{pageTitle || 'Demo Page'}</span>
+        <div className="page-demo" style={{"position":"relative","top":"-6px","width":"100%","display":"flex","flexDirection":"column","justifyContent":"center","alignItems":"center"}}>
+          <div className="header" style={{"height":"30px","width":"100%","background":"#f40"}}>
+            <span className="page-demo-title" style={{"color":"#fff","lineHeight":"1.6","marginLeft":"10px"}}>{pageTitle || 'Demo Page'}</span>
           </div>
-          <div className="content">
+          <div className="content" style={{"height":"170px","width":"100%","background":"#f8f8f8"}}>
             <ul>
               <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
               {finalFmp < finalLoad && <li>{ time > finalLoad - 100 ? <Image /> : <ImageHolder />}</li>}
@@ -123,8 +123,8 @@ class App extends Component {
               <li>Vivamus quis libero ac sapien placerat viverra.</li>
             </ul>
           </div>
-          <div className="footer">
-            <span className="page-demo-footer">&copy; MyCompany 2010-2019</span>
+          <div className="footer" style={{"height":"32px","width":"100%","background":"#ddd"}}>
+            <span className="page-demo-footer" style={{"fontSize":"10px","color":"#999","lineHeight":"3","marginLeft":"10px"}}>&copy; MyCompany 2010-2019</span>
           </div>
         </div>
       );
@@ -132,17 +132,17 @@ class App extends Component {
 
     if (isFcp) {
       return (
-        <div className="page-demo">
-          <div className="header">
-            <span className="page-demo-title">{pageTitle || 'Demo Page'}</span>
+        <div className="page-demo" style={{"position":"relative","top":"-6px","width":"100%","display":"flex","flexDirection":"column","justifyContent":"center","alignItems":"center"}}>
+          <div className="header" style={{"height":"30px","width":"100%","background":"#f40"}}>
+            <span className="page-demo-title" style={{"color":"#fff","lineHeight":"1.6","marginLeft":"10px"}}>{pageTitle || 'Demo Page'}</span>
           </div>
-          <div className="content">
+          <div className="content" style={{"height":"170px","width":"100%","background":"#f8f8f8"}}>
             {finalFmp > finalLoad && (
               <span>loading...</span>
             )}
           </div>
-          <div className="footer">
-            <span className="page-demo-footer">&copy; MyCompany 2010-2019</span>
+          <div className="footer" style={{"height":"32px","width":"100%","background":"#ddd"}}>
+            <span className="page-demo-footer" style={{"fontSize":"10px","color":"#999","lineHeight":"3","marginLeft":"10px"}}>&copy; MyCompany 2010-2019</span>
           </div>
         </div>
       );
@@ -150,10 +150,10 @@ class App extends Component {
 
     if (isFp) {
       return (
-        <div className="page-demo">
-          <div className="header"></div>
-          <div className="content"></div>
-          <div className="footer"></div>
+        <div className="page-demo" style={{"position":"relative","top":"-6px","width":"100%","display":"flex","flexDirection":"column","justifyContent":"center","alignItems":"center"}}>
+          <div className="header" style={{"height":"30px","width":"100%","background":"#f40"}}></div>
+          <div className="content" style={{"height":"170px","width":"100%","background":"#f8f8f8"}}></div>
+          <div className="footer" style={{"height":"32px","width":"100%","background":"#ddd"}}></div>
         </div>
       );
     }
@@ -175,24 +175,24 @@ class App extends Component {
     const finalTime = time / slowFactor;
 
     return (
-      <div className="paint-demo-wrapper">
-        <span className="page-title">{pageTitle || 'Demo Page'}</span>
-        <span className="page-url">{pageUrl || 'https://www.example.com'}</span>
+      <div className="paint-demo-wrapper" style={{ position: "relative", width: 480, height: 280, overflow: "hidden" }}>
+        <span className="page-title" style={{"position":"absolute","fontSize":"10px","top":"12px","left":"75px"}}>{pageTitle || 'Demo Page'}</span>
+        <span className="page-url" style={{"position":"absolute","fontSize":"10px","top":"30px","left":"60px"}}>{pageUrl || 'https://www.example.com'}</span>
         { !loading && <CloseButton /> }
         { loading && <Loading /> }
         { loading && <EmptyFavicon /> }
         { !loading && <Favicon /> }
         <Browser />
-        <div className="timer-wrapper">
+        <div className="timer-wrapper" style={{"position":"absolute","bottom":"0","right":"0","padding":"2px","background":"rgba(255, 255, 255, .9)","border":"1px #999 solid","zIndex":"1","textAlign":"right","width":"175px"}}>
           {/* <span className="slow-btn" onClick={this.handleSlow}>{ slowFactor === 1 ? '2x slow' : 'normal'}</span> */}
-          { finalTime >= lastTime && <span className="reload-btn" onClick={this.handleReplay}>replay</span> }
+          { finalTime >= lastTime && <span className="reload-btn" onClick={this.handleReplay} style={{"position":"absolute","bottom":"6px","left":"10px","fontSize":"10px","color":"#999","textDecoration":"underline","cursor":"pointer"}}>replay</span> }
           {arr.map((item, index) => {
             if (item.value <= finalTime && item.value > 0) {
-              return <span className="timer-entry" key={index}>{item.key}: {item.value.toFixed(2)}ms</span>;
+              return <span style={{"display":"block","fontSize":"12px","color":"#999"}} className="timer-entry" key={index}>{item.key}: {item.value.toFixed(2)}ms</span>;
             }
             return null;
           })}
-          <span className="timer">{finalTime.toFixed(2)}ms</span>
+          <span className="timer" style={{"fontFamily":"monospace","fontSize":"16px"}}>{finalTime.toFixed(2)}ms</span>
         </div>
         {this.renderContentByTime(finalTime)}
       </div>
