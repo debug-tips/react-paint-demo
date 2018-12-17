@@ -1,6 +1,6 @@
 {
   "name": "react-paint-demo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "a pseudo webpage loading animation demonstrates how W3C paint metrics are defined",
   "main": "dist/index.js",
   "repository": "git@github.com:debug-tips/react-paint-demo.git",
