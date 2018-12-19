@@ -17,7 +17,7 @@ class App extends Component {
       loading: !isNaN(parseFloat(props.load)),
       time: 0,
       timeBase: performance.now(),
-      slowFactor: 4,
+      slowFactor: this.getSlowFactor(),
     };
   }
 
@@ -25,8 +25,23 @@ class App extends Component {
     this.playAnimation();
   }
 
-  getMetrics() {
-    const { load, fp, fcp, fmp } = this.props;
+  getSlowFactor() {
+    const metrics = this.getMetrics();
+    const max = Math.max(...Object.keys(metrics).map(key => metrics[key]));
+
+    if (max < 5000) {
+      return 4;
+    } else if (max < 10000) {
+      return 3;
+    } else if (max < 20000) {
+      return 2;
+    }
+
+    return 1;
+  }
+
+  getMetrics(props = this.props) {
+    const { load, fp, fcp, fmp } = props;
     const finalLoad = parseFloat(load) || 0;
     const finalFp = parseFloat(fp) || 0;
     const finalFcp = parseFloat(fcp) || 0;
@@ -59,7 +74,7 @@ class App extends Component {
           });
           setTimeout(() => {
             this.updateTimer(stopTime);
-          }, 1500);
+          }, 2000);
         } else {
           this.updateTimer(stopTime);
         }
@@ -115,7 +130,7 @@ class App extends Component {
           <div className="header" style={{"height":"30px","width":"100%","background":"#f40"}}>
             <span className="page-demo-title" style={{"color":"#fff","lineHeight":"1.6","marginLeft":"10px"}}>{pageTitle || 'Demo Page'}</span>
           </div>
-          <div className="content" style={{"height":"170px","width":"100%","background":"#f8f8f8"}}>
+          <div className="content" style={{"height":"170px","width":"100%","background":"#f8f8f8", "paddingLeft": 10 }}>
             <ul>
               <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
               {finalFmp < finalLoad && <li>{ time > finalLoad - 100 ? <Image /> : <ImageHolder />}</li>}
@@ -136,7 +151,7 @@ class App extends Component {
           <div className="header" style={{"height":"30px","width":"100%","background":"#f40"}}>
             <span className="page-demo-title" style={{"color":"#fff","lineHeight":"1.6","marginLeft":"10px"}}>{pageTitle || 'Demo Page'}</span>
           </div>
-          <div className="content" style={{"height":"170px","width":"100%","background":"#f8f8f8"}}>
+          <div className="content" style={{"height":"170px","width":"100%","background":"#f8f8f8", "paddingLeft": 10 }}>
             {finalFmp > finalLoad && (
               <span>loading...</span>
             )}
@@ -183,7 +198,7 @@ class App extends Component {
         { loading && <EmptyFavicon /> }
         { !loading && <Favicon /> }
         <Browser />
-        <div className="timer-wrapper" style={{"position":"absolute","bottom":"0","right":"0","padding":"2px","background":"rgba(255, 255, 255, .9)","border":"1px #999 solid","zIndex":"1","textAlign":"right","width":"205px"}}>
+        <div className="timer-wrapper" style={{"position":"absolute","bottom":"0","right":"0","padding":"2px","background":"rgba(255, 255, 255, .9)","border":"1px #999 solid","zIndex":"1","textAlign":"right","width":"215px"}}>
           {/* <span className="slow-btn" onClick={this.handleSlow}>{ slowFactor === 1 ? '2x slow' : 'normal'}</span> */}
           { finalTime >= lastTime && <span className="reload-btn" onClick={this.handleReplay} style={{"position":"absolute","bottom":"6px","left":"10px","fontSize":"10px","color":"#999","textDecoration":"underline","cursor":"pointer"}}>replay</span> }
           {arr.map((item, index) => {
