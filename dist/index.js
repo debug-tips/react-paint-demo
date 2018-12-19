@@ -90,6 +90,26 @@
     return _assertThisInitialized(self);
   }
 
+  function _toConsumableArray(arr) {
+    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+  }
+
+  function _arrayWithoutHoles(arr) {
+    if (Array.isArray(arr)) {
+      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+      return arr2;
+    }
+  }
+
+  function _iterableToArray(iter) {
+    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+  }
+
+  function _nonIterableSpread() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance");
+  }
+
   function Loading() {
     return React__default.createElement("svg", {
       style: {
@@ -372,7 +392,7 @@
 
               setTimeout(function () {
                 _this.updateTimer(stopTime);
-              }, 1500);
+              }, 2000);
             } else {
               _this.updateTimer(stopTime);
             }
@@ -463,7 +483,8 @@
             style: {
               "height": "170px",
               "width": "100%",
-              "background": "#f8f8f8"
+              "background": "#f8f8f8",
+              "paddingLeft": 10
             }
           }, React__default.createElement("ul", null, React__default.createElement("li", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit."), finalFmp < finalLoad && React__default.createElement("li", null, time > finalLoad - 100 ? React__default.createElement(Image, null) : React__default.createElement(ImageHolder, null)), React__default.createElement("li", null, "Curabitur tristique eros tortor, eu dignissim enim egestas in. Cras facilisis risus accumsan venenatis vulputate."), React__default.createElement("li", null, "Vivamus quis libero ac sapien placerat viverra."))), React__default.createElement("div", {
             className: "footer",
@@ -514,7 +535,8 @@
             style: {
               "height": "170px",
               "width": "100%",
-              "background": "#f8f8f8"
+              "background": "#f8f8f8",
+              "paddingLeft": 10
             }
           }, finalFmp > finalLoad && React__default.createElement("span", null, "loading...")), React__default.createElement("div", {
             className: "footer",
@@ -575,7 +597,7 @@
         loading: !isNaN(parseFloat(props.load)),
         time: 0,
         timeBase: performance.now(),
-        slowFactor: 4
+        slowFactor: _this.getSlowFactor()
       };
       return _this;
     }
@@ -586,13 +608,31 @@
         this.playAnimation();
       }
     }, {
+      key: "getSlowFactor",
+      value: function getSlowFactor() {
+        var metrics = this.getMetrics();
+        var max = Math.max.apply(Math, _toConsumableArray(Object.keys(metrics).map(function (key) {
+          return metrics[key];
+        })));
+
+        if (max < 5000) {
+          return 4;
+        } else if (max < 10000) {
+          return 3;
+        } else if (max < 20000) {
+          return 2;
+        }
+
+        return 1;
+      }
+    }, {
       key: "getMetrics",
       value: function getMetrics() {
-        var _this$props = this.props,
-            load = _this$props.load,
-            fp = _this$props.fp,
-            fcp = _this$props.fcp,
-            fmp = _this$props.fmp;
+        var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.props;
+        var load = props.load,
+            fp = props.fp,
+            fcp = props.fcp,
+            fmp = props.fmp;
         var finalLoad = parseFloat(load) || 0;
         var finalFp = parseFloat(fp) || 0;
         var finalFcp = parseFloat(fcp) || 0;
@@ -611,9 +651,9 @@
             loading = _this$state.loading,
             time = _this$state.time,
             slowFactor = _this$state.slowFactor;
-        var _this$props2 = this.props,
-            pageTitle = _this$props2.pageTitle,
-            pageUrl = _this$props2.pageUrl;
+        var _this$props = this.props,
+            pageTitle = _this$props.pageTitle,
+            pageUrl = _this$props.pageUrl;
 
         var _this$getMetrics4 = this.getMetrics(),
             finalFcp = _this$getMetrics4.finalFcp,
@@ -673,7 +713,7 @@
             "border": "1px #999 solid",
             "zIndex": "1",
             "textAlign": "right",
-            "width": "205px"
+            "width": "215px"
           }
         }, finalTime >= lastTime && React__default.createElement("span", {
           className: "reload-btn",
